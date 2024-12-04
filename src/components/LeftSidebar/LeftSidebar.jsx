@@ -17,6 +17,7 @@ import {
 import { db } from "../../config/firebase";
 import { AppContext } from "../../context/AppContext";
 import { toast } from "react-toastify";
+import { getAuth, signOut } from "firebase/auth";
 
 const LeftSidebar = () => {
   const navigate = useNavigate();
@@ -143,6 +144,17 @@ const LeftSidebar = () => {
     updateChatUserData();
   }, [chatData] );
 
+  const handleLogout = async () => {
+    const auth = getAuth(); // Initialize Firebase Auth instance
+    try {
+      await signOut(auth);  // Sign out the user
+      console.log("User successfully logged out!");
+      // Redirect or clear state after logout if necessary
+    } catch (error) {
+      console.error("Logout error: ", error);
+    }
+  };
+
   return (
     <div className={`ls ${chatVisible ? "hidden" : ""}`}>
       <div className="ls-top">
@@ -154,7 +166,7 @@ const LeftSidebar = () => {
             <div className="sub-menu">
               <p onClick={() => navigate("/profile")}>Edit Profile</p>
               <hr />
-              <p onClick={()=>navigate('/')}>Logout</p>
+              <p onClick={handleLogout}>Logout</p>
             </div>
           </div>
         </div>

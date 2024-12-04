@@ -13,6 +13,8 @@ const AppContextProvider = (props) => {
   const [messages,setMessages] = useState([]);
   const [chatUser,setChatUser] = useState();
   const [chatVisible,setChatVisible] = useState(false);
+  const [isUserOnline, setIsUserOnline] = useState(false); // Ensure this is defined
+  const [lastSeenTime, setLastSeenTime] = useState(null);
   
   const loadUserData = async (uid) => {
     try {
@@ -78,7 +80,11 @@ const AppContextProvider = (props) => {
     chatUser,
     setChatUser,
     chatVisible,
-    setChatVisible
+    setChatVisible,
+    isUserOnline,
+    setIsUserOnline, // Ensure this is included
+    lastSeenTime,
+    setLastSeenTime,
   };
 
   return (

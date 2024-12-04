@@ -68,6 +68,13 @@
     outline: none;
 }
 
+p.last-seen {
+    font-size: 13px; 
+    color: gray; 
+    margin-top: 5px; 
+  }
+  
+
 .chat-msg{
     height: calc(100% - 70px);
     padding-bottom: 50px;
@@ -145,6 +152,8 @@
 .chat-user .arrow{
     display: none;
 }
+
+
 /*@media (max-width:900px) {
     .chat-box{
        width: 9900%;
@@ -278,7 +287,11 @@
         left: 0;
     }
 
-    
+    p.last-seen {
+        font-size: 13px; 
+        color: gray; 
+        margin-top: 5px; 
+      }
     
     .chat-input img{
         width: 50px;
